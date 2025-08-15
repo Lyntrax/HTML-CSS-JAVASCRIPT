@@ -2,21 +2,28 @@ const START_HOUR = 7;
     const END_HOUR   = 21;
     const days = ["Time","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
     const classes = [
-      { day:"Monday",    start:"18:00", end:"21:00", title:"ITE-MS01", room:"" },
-      { day:"Tuesday",   start:"15:00", end:"17:00", title:"PATHFIT 3", room:"SHS Umali Gym" },
-      { day:"Wednesday", start:"07:00", end:"12:00", title:"CC-103", room:"ComLab 2" },
-      { day:"Thursday",  start:"18:00", end:"21:00", title:"GE7", room:"SHS Room 16" },
-      { day:"Saturday",  start:"07:00", end:"12:00", title:"IT-PF01", room:"ComLab 4" },
-      { day:"Sunday",    start:"09:00", end:"12:00", title:"FIL 1", room:"SHS B Room 34" },
-    ];
+    { day: "Monday",    start: "13:00", end: "18:00", title: "IT-PF01", room: "ComLab 4" },
+    { day: "Tuesday",   start: "13:00", end: "18:00", title: "CC-103", room: "ComLab 2" },
+    { day: "Wednesday", start: "18:00", end: "21:00", title: "ITE-MS01", room: "SHS A Room 17" },
+    { day: "Thursday",  start: "18:00", end: "21:00", title: "GE7", room: "SHS Room 16" },
+    { day: "Saturday",  start: "07:00", end: "12:00", title: "IT-NET01", room: "SHS B Room 39" },
+    { day: "Saturday",  start: "18:00", end: "20:00", title: "PATHFIT 3", room: "SHS Umali Gym" },
+    { day: "Sunday",    start: "09:00", end: "12:00", title: "FIL 1", room: "SHS B Room 34" },
+  ];
+
+
+
     const colorMap = {
-      "ITE-MS01":"s-ite-ms01",
-      "PATHFIT 3":"s-pathfit-3",
-      "CC-103":"s-cc-103",
-      "GE7":"s-ge7",
-      "IT-PF01":"s-it-pf01",
-      "FIL 1":"s-fil1"
-    };
+    "ITE-MS01": "s-ite-ms01",
+    "PATHFIT 3": "s-pathfit-3",
+    "CC-103": "s-cc-103",
+    "GE7": "s-ge7",
+    "IT-PF01": "s-it-pf01",
+    "FIL 1": "s-fil1",
+    "IT-NET01": "s-it-net01"
+  };
+
+
     const grid = document.getElementById("grid");
     days.forEach((d,i) => {
       const c = document.createElement("div");
@@ -66,11 +73,19 @@ const START_HOUR = 7;
     };
     let is24Hour = false;
     const renderHourLabels = () => {
-      document.querySelectorAll(".cell.time").forEach(el=>{
-        const h = Number(el.dataset.hour);
-        el.textContent = `${formatHourLabel(h,is24Hour)}-${formatHourLabel(h+1,is24Hour)}`;
-      });
-    };
+  document.querySelectorAll(".cell.time").forEach(el => {
+    const h = Number(el.dataset.hour);
+    el.textContent = `${formatHourLabel(h,is24Hour)}-${formatHourLabel(h+1,is24Hour)}`;
+  });
+
+  
+  if (window.innerWidth <= 600) {
+    document.querySelectorAll(".cell.time").forEach(el => {
+      el.style.fontSize = is24Hour ? "12px" : "11px";
+    });
+  }
+};
+
     classes.forEach(evt=>{
       const col = days.indexOf(evt.day)+1;
       const startRow = rowFromTime(evt.start);
