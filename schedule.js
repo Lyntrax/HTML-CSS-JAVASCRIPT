@@ -2,13 +2,13 @@ const START_HOUR = 7;
     const END_HOUR   = 21;
     const days = ["Time","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
     const classes = [
-    { day: "Monday",    start: "13:00", end: "18:00", title: "IT-PF01", room: "ComLab 4" },
-    { day: "Tuesday",   start: "13:00", end: "18:00", title: "CC-103", room: "ComLab 2" },
-    { day: "Wednesday", start: "18:00", end: "21:00", title: "ITE-MS01", room: "SHS A Room 17" },
-    { day: "Thursday",  start: "18:00", end: "21:00", title: "GE7", room: "SHS Room 16" },
-    { day: "Saturday",  start: "07:00", end: "12:00", title: "IT-NET01", room: "SHS B Room 39" },
-    { day: "Saturday",  start: "18:00", end: "20:00", title: "PATHFIT 3", room: "SHS Umali Gym" },
-    { day: "Sunday",    start: "09:00", end: "12:00", title: "FIL 1", room: "SHS B Room 34" },
+    { day: "Monday",    start: "13:00", end: "18:00", title: "IT-PF01", room: "Second Year" },
+    { day: "Tuesday",   start: "13:00", end: "18:00", title: "CC-103", room: "Second Year" },
+    { day: "Wednesday", start: "18:00", end: "21:00", title: "ITE-MS01", room: "Second Year" },
+    { day: "Thursday",  start: "18:00", end: "21:00", title: "GE7", room: "First Year" },
+    { day: "Saturday",  start: "07:00", end: "12:00", title: "IT-NET01", room: "First Year" },
+    { day: "Saturday",  start: "18:00", end: "20:00", title: "PATHFIT 3", room: "Second Year" },
+    { day: "Sunday",    start: "09:00", end: "12:00", title: "FIL 1", room: "First Year" },
   ];
 
 
@@ -108,3 +108,4 @@ const START_HOUR = 7;
         document.documentElement.classList.contains("dark") ? "Light mode" : "Dark mode";
     });
     renderHourLabels();
+
